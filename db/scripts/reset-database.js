@@ -11,44 +11,46 @@ async function resetDatabase() {
   try {
     // Drop existing tables if they exist
     await pool.query(`
-        DROP TABLE IF EXISTS artists CASCADE;
-        DROP TABLE IF EXISTS albums CASCADE;
+        DROP TABLE IF EXISTS cars CASCADE;
+        DROP TABLE IF EXISTS owners CASCADE;
     `);
 
-    // Create the artists table
+    // Create the owners table
     await pool.query(`
-        CREATE TABLE artists (
+        CREATE TABLE owners  (
             id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-            name VARCHAR(255) NOT NULL
+            name VARCHAR(255) NOT NULL,
+            address VARCHAR(255) 
         );
     `);
 
-    // Create the albums table with a foreign key to the artists table
+    // Create the cars table with a foreign key to the owners table
     await pool.query(`
-        CREATE TABLE albums (
+        CREATE TABLE cars  (
             id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-            title VARCHAR(255) NOT NULL,
-            published_date DATE,
-            artist_id INT REFERENCES artists(id)
+            make VARCHAR(255) NOT NULL,
+            model VARCHAR(255) NOT NULL,
+            Year INT NOT NULL,
+            owner_id INT REFERENCES owners(id)
         );
     `);
 
-    // Seed the artists table
+    // Seed the owners table
     await pool.query(`
-        INSERT INTO artists (name)
+        INSERT INTO owners (name, address)
         VALUES 
-            ('Dua Lipa'),
-            ('Jay-Z');
+            ('Caron Lipa', '1234 Main ST'),
+            ('Sam Smith', '567 Main CT');
     `);
 
-    // Seed the albums table
+    // Seed the cars table
     await pool.query(`
-        INSERT INTO albums (title, published_date, artist_id)
+        INSERT INTO cars (make, model, year, owner_id)
         VALUES 
-            ('Dua Lipa', '2017-06-02', 1),
-            ('Future Nostalgia', '2020-03-27', 1),
-            ('Reasonable Doubt', '1996-06-25', 2),
-            ('The Blueprint', '2001-09-11', 2);
+            ('Toyota', 'Camry', 2020, 1),
+            ('Honda', 'Accord', 2018, 2),
+            ('Ford', 'Focus', 2021, 1),
+            ('Tesla', 'Model S', 2021, 2);
     `);
 
     console.log("Database reset successful");
