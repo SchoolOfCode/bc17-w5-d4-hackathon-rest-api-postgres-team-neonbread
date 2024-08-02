@@ -1,15 +1,11 @@
 
-## <p align="center"><img src="/assets/API.svg" alt="Logo" width="20" height="20"> REST Full API</p>
-
-
-<p align="center">
-  <a href="https://">View REST Full API</a></p>
+## <p align="center">REST Full API</p>
 
 A hands-on project to enhance JavaScript, Nodejs, Express, Postman, SQL queries, Postgersql, REST API skills for backend Project.
 ## Get End-point View
 ![Screenshot](./assets/get.png)
 ## Get with ID View
-<img src="./assets/getId.jpg" alt="Logo" width="250" height="500" style="margin-right: 20px;">
+![Screenshot](./assets/getWithId.png)
 
 ## Post End-point View
 ![Screenshot](./assets/post.png)

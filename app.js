@@ -93,9 +93,6 @@ res.status(200).json({status:'success', payload: owner});
   }
 });
 
-
-
-
 // Resource Two Route Handlers
 // Endpoint to retrieve all <resource_twos>
 app.get("/Cars/", async function (req, res) {
@@ -122,7 +119,7 @@ app.get("/Cars/", async function (req, res) {
     const car = await createCars(newCar);
     res.status(201).json({status: 'sucess', payload: car});
     }
-    catch{
+    catch(error){
       res.status(400).json({status: 'error', error: error})
     }
   });
