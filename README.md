@@ -11,7 +11,7 @@ A hands-on project to enhance JavaScript, Nodejs, Express, Postman, SQL queries,
 ![Screenshot](./assets/post.png)
 
 ## Patch End-point View
-![Screenshot](./assets/patch.png)
+![Screenshot](./assets/update.png)
 
 ## Delete End-point View
 ![Screenshot](./assets/delete.png)

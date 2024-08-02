@@ -47,6 +47,9 @@ app.get("/Owners/", async function (req, res) {
 app.get("/Owners/:id", async function (req, res) {
   try{
   const id = req.params.id;
+  if(!id){
+    res.status(404).json({status: 'error', error: 'Id not found'});
+  }
   const owner = await getOwnersById(id);
   res.status(200).json({ status: 'success', payload: owner});
 }
@@ -86,7 +89,11 @@ app.delete("/Owners/:id", async function (req, res) {
   try{
 const id =req.params.id;
 const owner = await deleteOwnersById(id);
-res.status(200).json({status:'success', payload: owner});
+
+if(!owner || !id){
+  res.status(404).json({status: 'error', error: 'Id not found'});
+}
+res.status(200).json({status:'success', payload: 'Remove a specific resource by its ID'});
   }
   catch(error){
     res.status(400).json({status: 'error', error: error });
@@ -142,7 +149,7 @@ app.get("/Cars/", async function (req, res) {
     try{
       const id = req.params.id;
       const car = await deleteCarsById(id);
-      res.status(200).json({status: 'success', payload: car});
+      res.status(200).json({status: 'success', payload: 'Remove a specific resource by its ID'});
     }
     catch(error){
       res.status(400).json({status: 'error', error: error})
