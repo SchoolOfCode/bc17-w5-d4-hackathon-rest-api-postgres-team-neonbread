@@ -16,5 +16,9 @@
     "dotenv": "^16.0.3",
     "morgan": "^1.10.0",
     "nodemon": "^3.0.1"
-  }
+  },
+  "description": "<p align=\"center\">\r   <a href=\"https://\">View REST Full API</a></p>",
+  "main": "app.js",
+  "author": "",
+  "license": "ISC"
 }

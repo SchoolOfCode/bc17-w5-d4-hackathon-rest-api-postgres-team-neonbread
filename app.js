@@ -106,7 +106,7 @@ app.get("/Cars/", async function (req, res) {
   // Endpoint to retrieve a <resource_twos> by id
   app.get("/Cars/:id", async function (req, res) {
   try{ 
-  const id =req.params.is;
+  const id =req.params.id;
   const car = await getCarsById(id);
   res.status(200).json({status: 'success', payload: car})
  }
